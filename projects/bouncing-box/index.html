@@ -19,7 +19,8 @@
 		}
 		.board{
 			height: 100vh;
-		}
+			background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF-y24StNGfw9VYfGKqC61jqkdbukTRmicNUluvOeaao95CK_kNyxlBe_kB9emxsYJB7M:https://thumbs.dreamstime.com/z/february-set-big-mario-moves-art-super-mario-world-classic-video-game-pixel-design-vector-illustration-super-mario-world-213002285.jpg&usqp=CAU)
+		};
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 
@@ -76,6 +77,13 @@
 
 				moveBoxTo(positionX)
 
+				if(positionX > boardWidth){
+					speed = -speed;
+				};
+
+				if(positionX < 0){
+					speed = -speed;
+				};
 			};
 
 			/* 
@@ -87,9 +95,8 @@
 				positionX = 0;
 
 				points = points + 1;
-				speed = speed + 3
-				changeBoxText(points);
-
+				speed = speed + 3;
+				changeBoxText(points);			
 			};
 		})();
 	</script>

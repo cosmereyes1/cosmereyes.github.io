@@ -23,18 +23,20 @@ var init = function (window) {
         var circle;                        // variable to hold a single circle when creating circles / iterating
         var circles = [];                  // variable to store all circles in one Array
         // TODO 2 : Create a function that draws a circle 
+
+       //code to draw a circle
         function drawCircle(){
-        circle = draw.randomCircleInArea(canvas, true, true, "#999", 2);
-        physikz.addRandomVelocity(circle, canvas, 10,10);
-        view.addChild(circle);
-        circles.push(circle);
+        circle = draw.randomCircleInArea(canvas, true, true, "#999", 2); //uses an existing draw function to draw a circle of random size, color and location within the canvas. It stores the output of that function
+        physikz.addRandomVelocity(circle, canvas, 10,10);       //uses the physikz library to add a random velocity and direction to the circle
+        view.addChild(circle);      //adds the circle as a child of view so that the circle appears on screen
+        circles.push(circle);       //saves the circle to an array of circles by pushing it to the end of the array
 
         }
 
         // TODO 3 / 7 : Call the drawCircle() function 
         
-        for (var i = 0; i < 100; i++) {
-           drawCircle();
+        for (var i = 0; i < 100; i++) {           //Violating the DRY Rule
+           drawCircle();                        
           }
         ////////////////////////////////////////////////////////////
         ///////////////// PROGRAM LOGIC ////////////////////////////
@@ -55,9 +57,9 @@ var init = function (window) {
             // Made a for loop and don't need the function calls
 
             // TODO 8 / 9 : Iterate over the array
-            for(var i = 0; i < circles.length; i++){
-                circles.length[i];
-                physikz.updatePosition(circles[i])
+            for(var i = 0; i < circles.length; i++){        //create a for loop
+                circles.length[i];              //code repeat using i
+                physikz.updatePosition(circles[i])      //iterate over circles
                 game.checkCirclePosition(circles[i])
             }
             

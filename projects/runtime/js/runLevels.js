@@ -35,7 +35,7 @@ var runLevels = function (window) {
 
     function createEnemy(x, y){
       var enemy = game.createGameItem("enemy", 25);
-      var redSquare = draw.rect(50, 50, "red");
+      var redSquare = draw.bitmap("img/goomba2.png");
       redSquare.x = -25;
       redSquare.y = -25;
       enemy.addChild(redSquare);
@@ -43,6 +43,8 @@ var runLevels = function (window) {
       enemy.y = y;
       game.addGameItem(enemy);
       enemy.velocityX = -4;
+      redSquare.scaleX = 0.3
+      redSquare.scaleY = 0.3
 
       enemy.onPlayerCollision = function () {
         game.changeIntegrity(-20);
@@ -56,7 +58,7 @@ var runLevels = function (window) {
 
     function createReward(x, y){
       var reward = game.createGameItem("enemy", 25);
-      var blueSquare = draw.rect(50, 50, "blue");
+      var blueSquare = draw.bitmap("img/health2.png");
       blueSquare.x = -25;
       blueSquare.y = -25;
       reward.addChild(blueSquare);
@@ -64,8 +66,10 @@ var runLevels = function (window) {
       reward.y = y;
       game.addGameItem(reward);
       reward.velocityX = -4;
+      blueSquare.scaleX = 0.3
+      blueSquare.scaleY = 0.3
 
-      reward.onPlayerCollision = function () {
+      reward.onPlayerCollision = function () { // creates a function
         game.changeIntegrity(100);
         reward.fadeOut();
       };
@@ -98,7 +102,7 @@ var runLevels = function (window) {
     createSawBlade(900, groundY - 120);
     createEnemy(800, groundY - 50);
     createReward(900, groundY -60);
-
+    createMarker();
 
     function startLevel() {
       // TODO 13 goes below here

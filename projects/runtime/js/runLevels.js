@@ -87,7 +87,7 @@ var runLevels = function (window) {
         marker.addChild(yellowSquare);
         marker.x = x;
         marker.y = y;
-        game.addGameItem(reward);
+        game.addGameItem(marker);
         marker.velocityX = -4;
   
         marker.onPlayerCollision = function () {
@@ -97,15 +97,26 @@ var runLevels = function (window) {
       }
 
     //function calls
-    createSawBlade(500, groundY - 120);
-    createSawBlade(700, groundY - 120);
-    createSawBlade(900, groundY - 120);
-    createEnemy(800, groundY - 50);
-    createReward(900, groundY -60);
-    createMarker();
 
     function startLevel() {
       // TODO 13 goes below here
+      var level = levelData[currentLevel];
+      var levelObjects = level.gameItems 
+      for(var i = 0; i < levelObjects.length; i++){
+        var element = levelObjects[i];
+        if(element.type === "sawblade"){
+          createSawBlade(element.x, element.y);
+        }
+        if(element.type === "enemy"){
+          createEnemy(element.x, element.y);
+        }
+        if(element.type === "reward"){
+          createReward(element.x, element.y);
+        }
+        if(element.type === "marker"){
+          createMarker(element.x, element.y);
+        }
+      }
 
 
 

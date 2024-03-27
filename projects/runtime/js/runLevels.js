@@ -29,15 +29,15 @@ var runLevels = function (window) {
     game.addGameItem(sawBladeHitZone);
     var obstacleImage = draw.bitmap("img/sawblade.png");
     sawBladeHitZone.addChild(obstacleImage);
-    obstacleImage.x = -25;
-    obstacleImage.y = -25;
+    obstacleImage.x = -25; // position on the ground
+    obstacleImage.y = -25; // position in the air
     }
 
     function createEnemy(x, y){
       var enemy = game.createGameItem("enemy", 25);
       var redSquare = draw.bitmap("img/goomba2.png");
-      redSquare.x = -25;
-      redSquare.y = -25;
+      redSquare.x = -25; // position on the ground
+      redSquare.y = -25; // position in the air
       enemy.addChild(redSquare);
       enemy.x = x;
       enemy.y = y;
@@ -59,8 +59,8 @@ var runLevels = function (window) {
     function createReward(x, y){
       var reward = game.createGameItem("enemy", 25);
       var blueSquare = draw.bitmap("img/health2.png");
-      blueSquare.x = -25;
-      blueSquare.y = -25;
+      blueSquare.x = -25; // position on the ground
+      blueSquare.y = -25; // position in the air
       reward.addChild(blueSquare);
       reward.x = x;
       reward.y = y;
@@ -82,8 +82,8 @@ var runLevels = function (window) {
       function createMarker(x,y){
         var marker = game.createGameItem("enemy", 25);
         var yellowSquare = draw.rect(50, 50, "yellow");
-        yellowSquare.x = -25;
-        yellowSquare.y = -25;
+        yellowSquare.x = -25; // position on the ground
+        yellowSquare.y = -25; // position in the air
         marker.addChild(yellowSquare);
         marker.x = x;
         marker.y = y;
@@ -91,8 +91,8 @@ var runLevels = function (window) {
         marker.velocityX = -4;
   
         marker.onPlayerCollision = function () {
-          startLevel();
-          marker.shrink();
+          startLevel(); // starts the level
+          marker.shrink(); // shrinks marker
         };
       }
 

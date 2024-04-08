@@ -30,8 +30,8 @@ var background = function (window) {
         //////////////////////////////////////////////////////////////////
         // TODO (several):
       
-        var tree;
-        var buildings = [];
+        var tree; // spawns the tree
+        var buildings = []; // spawns the buildings
 
 
         // called at the start of game and whenever the page is resized

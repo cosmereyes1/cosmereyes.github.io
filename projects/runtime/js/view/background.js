@@ -55,12 +55,12 @@ var background = function (window) {
 
             }
             
-            var moon = draw.bitmap("img/moon.png");
-            moon.x = canvasWidth - 250;
-            moon.y = groundY - 350;
-            moon.scaleX = 0.5;
-            moon.scaleY = 0.5;
-            background.addChild(moon);
+            var moon = draw.bitmap("img/moon.png"); // image of the moon
+            moon.x = canvasWidth - 250; // tells how wide it is
+            moon.y = groundY - 350; // how high the moon is
+            moon.scaleX = 0.5; // enhences the width of the moon
+            moon.scaleY = 0.5; // enhances the height of the moon
+            background.addChild(moon); // adds the moon to the background
 
             
             // TODO 4: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?

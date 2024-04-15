@@ -23,24 +23,24 @@ var runLevels = function (window) {
     function createSawBlade(x, y){ // created a function called createSawBlade
       var hitZoneSize = 25; // size of the hit zone for saw blade
     var damageFromObstacle = 10; // inflicts 10 damage to hallebot
-    var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
-    sawBladeHitZone.x = x;
-    sawBladeHitZone.y = y;
+    var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle); // hitzone for obstacle
+    sawBladeHitZone.x = x; // Changes the x position of the sawblade
+    sawBladeHitZone.y = y; // Changes the y position of the sawblade
     game.addGameItem(sawBladeHitZone); // creates the saw blade
-    var obstacleImage = draw.bitmap("img/sawblade.png");
+    var obstacleImage = draw.bitmap("img/sawblade.png"); // what the obstacle looks like
     sawBladeHitZone.addChild(obstacleImage); // adds saw blade to the background
     obstacleImage.x = -25; // position on the ground
     obstacleImage.y = -25; // position in the air
     }
 
     function createEnemy(x, y){ // created a function called createEnemy
-      var enemy = game.createGameItem("enemy", 25);
-      var redSquare = draw.bitmap("img/goomba2.png");
+      var enemy = game.createGameItem("enemy", 25); // creates a var called enemy that creates a game item
+      var redSquare = draw.bitmap("img/goomba2.png"); // what the enemy looks like
       redSquare.x = -25; // position on the ground
       redSquare.y = -25; // position in the air
       enemy.addChild(redSquare); // adds enemy to the background
-      enemy.x = x;
-      enemy.y = y;
+      enemy.x = x; // Changes the x position of the red square
+      enemy.y = y; // Changes the y position of the red square
       game.addGameItem(enemy); // creates the enemy
       enemy.velocityX = -4;
       redSquare.scaleX = 0.3
@@ -57,8 +57,8 @@ var runLevels = function (window) {
     }
 
     function createReward(x, y){ // created a function called createReward
-      var reward = game.createGameItem("enemy", 25);
-      var blueSquare = draw.bitmap("img/health2.png");
+      var reward = game.createGameItem("enemy", 25); // creates a var called reward that creates a game item
+      var blueSquare = draw.bitmap("img/health2.png"); // what the reward looks like
       blueSquare.x = -25; // position on the ground
       blueSquare.y = -25; // position in the air
       reward.addChild(blueSquare); // adds reward to the background
@@ -70,8 +70,8 @@ var runLevels = function (window) {
       blueSquare.scaleY = 0.3
 
       reward.onPlayerCollision = function () { // creates a function
-        game.changeIntegrity(100);
-        reward.fadeOut();
+        game.changeIntegrity(100); // increases health by 100
+        reward.fadeOut(); // reward fades out
       };
 
       
@@ -80,7 +80,7 @@ var runLevels = function (window) {
 
 
       function createMarker(x,y){ // created a function called createMarker
-        var marker = game.createGameItem("enemy", 25);
+        var marker = game.createGameItem("enemy", 25); // creates a var called marker that creates a game item
         var yellowSquare = draw.rect(50, 50, "yellow"); // draws a rectamgle for the marker
         yellowSquare.x = -25; // position on the ground
         yellowSquare.y = -25; // position in the air

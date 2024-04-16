@@ -56,6 +56,29 @@ var runLevels = function (window) {
       }
     }
 
+    function createEnemy2(x, y){ // created a function called createEnemy
+      var enemy = game.createGameItem("enemy", 25); // creates a var called enemy that creates a game item
+      var redSquare = draw.bitmap("img/flying koopa pp.png"); // what the enemy looks like
+      redSquare.x = -25; // position on the ground
+      redSquare.y = -25; // position in the air
+      enemy.addChild(redSquare); // adds enemy to the background
+      enemy.x = x; // Changes the x position of the red square
+      enemy.y = y; // Changes the y position of the red square
+      game.addGameItem(enemy); // creates the enemy
+      enemy.velocityX = -4;
+      redSquare.scaleX = 0.3
+      redSquare.scaleY = 0.3
+
+      enemy.onPlayerCollision = function () {
+        game.changeIntegrity(-20);
+      };
+
+      enemy.onProjectileCollision = function(){
+        game.increaseScore(100); // increases the score by 100
+        enemy.fadeOut(); // enemy fades out
+      }
+    }
+
     function createReward(x, y){ // created a function called createReward
       var reward = game.createGameItem("enemy", 25); // creates a var called reward that creates a game item
       var blueSquare = draw.bitmap("img/health2.png"); // what the reward looks like
@@ -77,7 +100,26 @@ var runLevels = function (window) {
       
     }
 
+    function createReward2(x, y){ // created a function called createReward
+      var reward = game.createGameItem("enemy", 25); // creates a var called reward that creates a game item
+      var blueSquare = draw.bitmap("img/redmushroom.webp"); // what the reward looks like
+      blueSquare.x = -25; // position on the ground
+      blueSquare.y = -25; // position in the air
+      reward.addChild(blueSquare); // adds reward to the background
+      reward.x = x; // Changes the x position of the blue square
+      reward.y = y; // Changes the y position of the blue square
+      game.addGameItem(reward); // creates the reward
+      reward.velocityX = -4;
+      blueSquare.scaleX = 0.3
+      blueSquare.scaleY = 0.3
 
+      reward.onPlayerCollision = function () { // creates a function
+        game.changeIntegrity(100); // increases health by 100
+        reward.fadeOut(); // reward fades out
+      };
+
+      
+    }
 
       function createMarker(x,y){ // created a function called createMarker
         var marker = game.createGameItem("enemy", 25); // creates a var called marker that creates a game item
@@ -116,6 +158,13 @@ var runLevels = function (window) {
         if(element.type === "marker"){
           createMarker(element.x, element.y);
         }
+        if(element.type === "koopa"){
+          createEnemy2(element.x, element.y);
+        }
+        if(element.type === "redmushroom"){
+          createReward2(element.x, element.y);
+        }
+      
       }
 
 

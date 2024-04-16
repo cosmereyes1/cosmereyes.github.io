@@ -42,16 +42,17 @@ var background = function (window) {
             // TODO 1:
             // this currently fills the background with an obnoxious yellow;
             // you should modify both the height and color to suit your game
-            var backgroundFill = draw.rect(canvasWidth,groundY,'#12E9F8'); // background color and shapes
+            var backgroundFill = draw.bitmap('img/mariobackground.png'); // background color and shapes
             background.addChild(backgroundFill); // fills in the background
-            
+            background.scaleX = 6.75;
+            background.scaleY = 2.85
             // TODO 2: - Add a moon and starfield
             
             for(var stars = 0; stars < 200; stars++){ // for loop for stars
                 var circle = draw.circle(2.5, "white", "yellow", 2); // draws the stars into the background
                 circle.x = canvasWidth * Math.random(); // width of the stars
                 circle.y = groundY * Math.random(); // how high the stars are
-                background.addChild(circle); // adds the stars to the background
+                //background.addChild(circle); // adds the stars to the background
 
             }
             
@@ -60,7 +61,7 @@ var background = function (window) {
             moon.y = groundY - 350; // how high the moon is
             moon.scaleX = 0.5; // enhences the width of the moon
             moon.scaleY = 0.5; // enhances the height of the moon
-            background.addChild(moon); // adds the moon to the background
+           // background.addChild(moon); // adds the moon to the background
 
             
             // TODO 4: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
@@ -69,7 +70,7 @@ var background = function (window) {
                 var building = draw.rect(75, buildingHeight, "tan", "Black", 1); // creates a building and color
                 building.x = 350 * i; // where the building is
                 building.y = groundY - buildingHeight; // subtract height of the building
-                background.addChild(building); // adds the buildings to the background
+               // background.addChild(building); // adds the buildings to the background
                 buildings.push(building); // pushes the building
               }
               

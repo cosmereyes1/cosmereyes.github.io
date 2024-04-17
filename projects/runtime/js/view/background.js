@@ -42,6 +42,8 @@ var background = function (window) {
             // TODO 1:
             // this currently fills the background with an obnoxious yellow;
             // you should modify both the height and color to suit your game
+            var groundFill = draw.rect(canvasWidth, canvasHeight, "#cf520f") // bottom background color
+            background.addChild(groundFill); // fills in the background
             var backgroundFill = draw.bitmap('img/mariobackground.png'); // background color and shapes
             background.addChild(backgroundFill); // fills in the background
             background.scaleX = 6.75;
@@ -79,7 +81,7 @@ var background = function (window) {
             tree = draw.bitmap("img/tree.png"); // image for tree
             tree.x = canvasWidth - 225; // how wide the tree is
             tree.y = groundY - 225; // position of the tree/ how high it is
-            background.addChild(tree); // adds the tree to the background
+          //  background.addChild(tree); // adds the tree to the background
 
             
         } // end of render function - DO NOT DELETE

@@ -155,13 +155,13 @@ var runLevels = function (window) {
         if(element.type === "reward"){
           createReward(element.x, element.y);
         }
-        if(element.type === "marker"){
+        if(element.type === "marker"){ // checks if the item is marker
           createMarker(element.x, element.y);
         }
-        if(element.type === "koopa"){
+        if(element.type === "koopa"){ // checks if the item is koopa
           createEnemy2(element.x, element.y);
         }
-        if(element.type === "redmushroom"){
+        if(element.type === "redmushroom"){ // checks if the item is redmushroom
           createReward2(element.x, element.y);
         }
       
